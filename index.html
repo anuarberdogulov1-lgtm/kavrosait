@@ -10,10 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&display=swap">
 <style>
-/* =====================================================================
-   KAVRO — тёмно-синяя премиальная палитра
-   ===================================================================== */
-
 :root{
   --bg: #e8ebf2;
   --bg-card: #f4f6fa;
@@ -33,16 +29,13 @@
   --accent-ink: #24457f;
   --gold-bg: #c9d6ee;
   --danger: #b33924;
-
   --f-display: 'Spectral','Iowan Old Style',Georgia,serif;
   --f-body: 'Inter',system-ui,-apple-system,sans-serif;
-
   --gutter: clamp(16px,4vw,56px);
   --header-h: 72px;
   --ease: cubic-bezier(.2,.7,.2,1);
   color-scheme: light;
 }
-
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-gutter:stable}
 html.lock{overflow:hidden}
@@ -58,15 +51,11 @@ section[id]{scroll-margin-top:var(--header-h)}
 ::selection{background:var(--navy);color:var(--on-dark)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
-
 .wrap{width:100%;max-width:1440px;margin-inline:auto;
   padding-left:max(var(--gutter),env(safe-area-inset-left,0px));
   padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
-
 .h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2.4rem,4.8vw,4.4rem);line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
-
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;
   font-size:14.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;border-radius:4px;
   background:var(--navy);color:var(--on-dark);border:1px solid var(--navy);
@@ -81,16 +70,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .btn--gold{background:var(--accent);border-color:var(--accent);color:#fff}
 .btn--gold:hover{background:var(--navy);color:var(--on-dark);border-color:var(--navy)}
 .btn[disabled]{opacity:.4;pointer-events:none}
-
 .link{display:inline-block;font-size:14.5px;font-weight:500;padding-bottom:3px;border-bottom:1.5px solid currentColor;transition:opacity .2s,color .2s}
 .link:hover{color:var(--accent)}
 .icon-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;transition:background .2s}
 .icon-btn:hover{background:rgba(15,28,51,.08)}
-
 .pimg{user-select:none;-webkit-user-drag:none}
 .fit{position:absolute;inset:var(--pad,6%);width:calc(100% - 2 * var(--pad,6%));height:calc(100% - 2 * var(--pad,6%));object-fit:contain}
-
-/* ---------- 4. ШАПКА ---------- */
 .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(232,235,242,0.85);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
 .hdr.stuck{border-color:var(--line);background:rgba(232,235,242,0.95)}
 .hdr-in{height:var(--header-h);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
@@ -99,11 +84,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .nav a:hover{color:var(--ink)}
 .nav a:hover::after{transform:scaleX(1)}
-
 .logo{display:inline-flex;align-items:center;gap:10px;justify-self:center;white-space:nowrap}
 .logo-mark{width:30px;height:30px;flex:none}
 .logo-text{font-size:15px;font-weight:700;letter-spacing:.28em;color:var(--navy)}
-
 .cart-btn{justify-self:end;display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:500;padding:6px 14px;border-radius:22px;background:rgba(15,28,51,0.05);transition:background .2s}
 .cart-btn:hover{background:rgba(15,28,51,0.1)}
 .cart-count{min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:var(--accent);color:#fff;
@@ -113,16 +96,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .cart-count.bump{animation:bump .5s var(--ease)}
 @keyframes bump{40%{transform:scale(1.3)}}
 .burger{display:none;justify-self:start;margin-left:-10px}
-
-/* Мобильное меню */
 .mnav{position:fixed;inset:0;z-index:45;background:var(--bg);display:flex;flex-direction:column;justify-content:space-between;
   padding:calc(var(--header-h) + env(safe-area-inset-top,0px) + 24px) max(var(--gutter),env(safe-area-inset-left,0px)) calc(28px + env(safe-area-inset-bottom,0px));
   opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s}
 .mnav.on{opacity:1;visibility:visible;transform:none}
 .mnav a.big{display:block;width:100%;text-align:left;font-family:var(--f-display);font-weight:300;font-size:clamp(2.2rem,10vw,3.4rem);line-height:1.1;padding:12px 0;border-bottom:1px solid var(--line)}
 .mnav-foot{display:grid;gap:6px;font-size:14px;color:var(--ink-2)}
-
-/* ---------- 5. ПЕРВЫЙ ЭКРАН ---------- */
 .hero{padding-block:clamp(28px,5vw,72px) clamp(48px,6vw,88px);overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,88px);align-items:center}
 .hero h1{font-family:var(--f-display);font-weight:300;font-size:clamp(2.7rem,5.7vw,5.6rem);line-height:1;letter-spacing:-.025em;color:var(--navy)}
@@ -131,11 +110,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @keyframes rise{from{transform:translateY(108%)}}
 .hero-sub{max-width:44ch;margin-top:28px;font-size:17px;line-height:1.6;color:var(--ink-2)}
 .hero-cta{display:flex;align-items:center;gap:20px 32px;flex-wrap:wrap;margin-top:36px}
-
 .stage{position:relative;aspect-ratio:5/6;background:var(--stone);border-radius:12px;display:grid;place-items:center;width:100%;max-width:580px;justify-self:end;box-shadow:0 20px 40px rgba(15,28,51,0.08);overflow:hidden}
 .stage .ph{width:100%;height:100%;object-fit:cover}
 .stage-cap{position:absolute;left:20px;bottom:16px;font-size:13px;color:var(--navy);letter-spacing:.05em;text-transform:uppercase;opacity:.75}
-
 .tag-wrap{position:absolute;top:0;right:12%;width:clamp(112px,11vw,140px);z-index:3;
   animation:drop 1.2s var(--ease) 1s both;filter:drop-shadow(0 16px 16px rgba(15,28,51,.18))}
 .tag-swing{transform-origin:50% 0;animation:swing 6s ease-in-out 2.2s infinite alternate}
@@ -151,7 +128,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tag-rule{display:block;height:1px;background:var(--line-strong);margin:12px 0 10px}
 .tag-size{display:block;font-size:11.5px;color:var(--mute)}
 .tag-price{display:block;margin-top:2px;font-size:15px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
-
 .perks{border-block:1px solid var(--line);background:rgba(255,255,255,0.3)}
 .perks-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .perk{display:flex;gap:16px;align-items:flex-start;padding:24px 24px 24px 0}
@@ -159,8 +135,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .perk .ico{width:26px;height:26px;margin-top:2px;color:var(--accent)}
 .perk b{display:block;font-weight:600;font-size:15px;color:var(--navy)}
 .perk span{display:block;margin-top:3px;font-size:14px;color:var(--ink-2);max-width:38ch}
-
-/* ---------- 6. КАТАЛОГ ---------- */
 .sec{padding-block:clamp(64px,9vw,128px)}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px 40px;margin-bottom:clamp(28px,4vw,56px)}
 .tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px 36px;min-width:0}
@@ -173,7 +147,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .sort{position:relative;display:flex;align-items:center}
 .sort select{appearance:none;-webkit-appearance:none;background:transparent;color:var(--ink);font:inherit;font-size:14px;font-weight:500;border:0;border-bottom:1.5px solid var(--line-strong);border-radius:0;padding:8px 26px 8px 0;cursor:pointer}
 .sort .ico{position:absolute;right:0;width:16px;height:16px;pointer-events:none;color:var(--mute)}
-
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(32px,3.4vw,52px) clamp(16px,2vw,30px)}
 .card{display:flex;flex-direction:column;min-width:0;background:var(--bg-card);border-radius:10px;padding:12px;box-shadow:0 4px 16px rgba(15,28,51,0.04);border:1px solid rgba(15,28,51,0.06);animation:cardin .5s var(--ease) backwards;animation-delay:calc(var(--i) * 60ms);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(15,28,51,0.1)}
@@ -191,7 +164,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .name button:hover{color:var(--accent)}
 .price{font-size:16px;font-weight:600;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
 .brand{font-size:13px;color:var(--mute);margin-top:-6px}
-
 .size-row{margin-top:auto}
 .size-label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px;transition:color .2s}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
@@ -204,8 +176,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 .card .btn{width:100%;margin-top:4px}
 .empty{grid-column:1/-1;padding:48px 0;color:var(--mute);text-align:center;font-size:16px}
-
-/* ---------- 7. ТЁМНЫЕ СЕКЦИИ ---------- */
 .dark{position:relative;background:var(--navy);color:var(--on-dark);isolation:isolate}
 .dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.16;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
@@ -216,8 +186,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .rule:last-child{border-bottom:1px solid var(--line-dark)}
 .rule h3{font-size:16px;font-weight:500;color:var(--accent-soft)}
 .rule p{margin-top:6px;color:var(--on-dark-mute);max-width:46ch}
-
-/* ---------- 8. ДОСТАВКА ---------- */
 .ship-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,7vw,112px);align-items:start}
 .steps{margin-top:clamp(28px,4vw,48px)}
 .step{display:grid;grid-template-columns:56px minmax(0,1fr);gap:4px 16px;padding:24px 0;border-top:1px solid var(--line)}
@@ -230,8 +198,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .facts-row:last-child{border-bottom:1px solid var(--line)}
 .facts dt{color:var(--mute)}
 .facts dd{font-weight:600;color:var(--navy)}
-
-/* ---------- 9. КОНТАКТЫ И ПОДВАЛ ---------- */
 .contact-lead{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.8rem);line-height:1.06;letter-spacing:-.02em;max-width:20ch;text-wrap:balance}
 .contact-cta{margin-top:32px}
 .foot{margin-top:clamp(48px,7vw,96px);padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line-dark)}
@@ -239,11 +205,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .foot-nav{display:flex;gap:8px 24px;flex-wrap:wrap;font-size:14px;color:var(--on-dark-mute)}
 .foot a:hover{color:var(--on-dark)}
 .copy{font-size:13px;color:var(--on-dark-mute)}
-
-/* ---------- 10. СЛОИ И МОДАЛЬНЫЕ ОКНА ---------- */
 .scrim{position:fixed;inset:0;z-index:80;background:rgba(11,21,40,0.62);opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .scrim.on{opacity:1;visibility:visible}
-
 .modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:clamp(0px,3vw,40px);visibility:hidden;pointer-events:none}
 .modal.on{visibility:visible}
 .m-dialog{position:relative;pointer-events:auto;width:min(1080px,100%);max-height:100%;background:var(--bg-card);border-radius:12px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);overflow:hidden;
@@ -270,8 +233,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .m-perks{display:grid;gap:10px;font-size:13.5px;color:var(--ink-2)}
 .m-perks li{display:flex;gap:10px;align-items:center}
 .m-perks .ico{width:18px;height:18px;color:var(--accent)}
-
-/* Корзина */
 .drawer{position:fixed;top:0;right:0;bottom:0;z-index:100;width:min(470px,100%);background:var(--bg-card);display:flex;flex-direction:column;
   padding-top:env(safe-area-inset-top,0px);padding-right:env(safe-area-inset-right,0px);padding-bottom:env(safe-area-inset-bottom,0px);
   transform:translateX(100%);visibility:hidden;transition:transform .5s var(--ease),visibility .5s;box-shadow:-10px 0 30px rgba(15,28,51,0.18)}
@@ -284,7 +245,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .d-foot{padding:20px 24px;border-top:1px solid var(--line);display:grid;gap:14px;background:var(--bg-card)}
 .d-empty{display:flex;flex-direction:column;align-items:flex-start;gap:20px;padding:48px 0}
 .d-empty p{font-family:var(--f-display);font-weight:300;font-size:1.8rem;line-height:1.1}
-
 .ship-note{padding:16px 0;font-size:13.5px;color:var(--ink-2);border-bottom:1px solid var(--line)}
 .ship-bar{height:3px;background:var(--line);margin-top:10px;border-radius:2px;overflow:hidden}
 .ship-bar i{display:block;height:100%;width:var(--p,0%);background:var(--accent);transition:width .5s var(--ease)}
@@ -307,8 +267,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .sum .total{color:var(--ink);font-size:18px;font-weight:600;padding-top:10px;border-top:1px solid var(--line)}
 .sum .total span:last-child{color:var(--accent);font-variant-numeric:tabular-nums}
 .fine{font-size:12.5px;color:var(--mute);line-height:1.5}
-
-/* Форма контактов */
 .form{padding-top:20px;display:grid;gap:22px}
 .form-lead{color:var(--ink-2);max-width:40ch}
 .field label{display:block;font-size:13px;color:var(--mute);margin-bottom:4px}
@@ -320,8 +278,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .mini-sum{display:grid;gap:6px;padding:16px 0;border-block:1px solid var(--line);font-size:14px}
 .mini-sum div{display:flex;justify-content:space-between;gap:12px;color:var(--ink-2)}
 .mini-sum div:last-child{color:var(--ink);font-weight:600}
-
-/* Экран «Заказ оформлен» */
 .done{padding:28px 0;display:grid;gap:22px;justify-items:start}
 .slip{position:relative;width:100%;background:#fff;padding:34px 22px 22px;border-radius:8px;
   clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%,0 18px);box-shadow:0 4px 16px rgba(15,28,51,0.08)}
@@ -333,21 +289,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .slip li span:first-child{min-width:0}
 .slip-total{display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-strong);font-weight:600}
 .copy-state{font-size:13px;color:var(--mute);min-height:1.2em}
-
-/* Тост */
 .toast{position:fixed;left:0;right:0;margin-inline:auto;width:max-content;bottom:max(20px,env(safe-area-inset-bottom,0px));z-index:120;max-width:calc(100% - 32px);display:flex;align-items:center;gap:18px;
   background:var(--navy);color:var(--on-dark);padding:13px 18px;font-size:14px;border-radius:30px;box-shadow:0 10px 25px rgba(15,28,51,0.25);
   transform:translateY(24px);opacity:0;visibility:hidden;transition:transform .4s var(--ease),opacity .3s,visibility .4s}
 .toast.on{transform:none;opacity:1;visibility:visible}
 .toast button{font-weight:600;color:var(--gold-bg);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
-
-/* АДАПТИВ */
-@media (max-width:1100px){
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){
-  .nav{display:none}
-  .burger{display:grid}
+  .nav{display:none}.burger{display:grid}
   .hero-grid,.about-grid,.ship-grid{grid-template-columns:1fr}
   .stage{max-width:none;aspect-ratio:4/3.6;justify-self:stretch}
   .tag-wrap{right:7%}
@@ -364,19 +313,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .m-close{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:max(10px,env(safe-area-inset-right,0px))}
 }
 @media (max-width:640px){
-  .filters{gap:6px 10px}
-  .name{font-size:1.2rem}
+  .filters{gap:6px 10px}.name{font-size:1.2rem}
   .card-head{flex-direction:column;gap:4px}
   .chip{min-width:34px;height:36px;padding:0 6px}
-  .chips{gap:5px}
-  .badge{left:8px;top:8px}
-  .qv{display:none}
+  .chips{gap:5px}.badge{left:8px;top:8px}.qv{display:none}
   .foot-in{flex-direction:column;align-items:flex-start}
 }
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -394,8 +337,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
   <symbol id="i-send" viewBox="0 0 24 24"><path d="M21.5 3.5 2.5 10.8l6.3 2.4 2.4 6.3 3.2-4.3 4.9 3.8 2.2-15.5Z"/><path d="M8.8 13.2 21.5 3.5"/></symbol>
   <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
-
-  <!-- Логотип KAVRO: круг + горы + волны -->
   <symbol id="logo-kavro" viewBox="0 0 100 100">
     <circle cx="50" cy="50" r="48" fill="#0f1c33"/>
     <path d="M50 86 C36 86 24 78 16 66" stroke="#eef2f9" stroke-width="3" fill="none" stroke-linecap="round"/>
@@ -405,7 +346,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </symbol>
 </svg>
 
-<!-- ============ ШАПКА ============ -->
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
     <nav class="nav" aria-label="Основное меню">
@@ -417,12 +357,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <button class="icon-btn burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav">
       <svg class="ico"><use href="#i-menu"/></svg>
     </button>
-
     <a class="logo" href="#top" aria-label="KAVRO — на главную">
       <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#logo-kavro"/></svg>
       <span class="logo-text">KAVRO</span>
     </a>
-
     <button class="cart-btn" id="cartBtn" type="button" aria-label="Корзина, товаров: 0">
       <svg class="ico"><use href="#i-bag"/></svg>
       <span class="cart-label">Корзина</span>
@@ -431,7 +369,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </header>
 
-<!-- Меню для телефона -->
 <nav class="mnav" id="mnav" aria-label="Меню">
   <div>
     <a class="big" href="#catalog">Каталог</a>
@@ -445,7 +382,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </nav>
 
 <main id="top">
-<!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
 <section class="hero" aria-labelledby="heroTitle">
   <div class="wrap hero-grid">
     <div>
@@ -463,7 +399,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <a class="link" href="#delivery">Условия доставки</a>
       </div>
     </div>
-
     <div class="stage">
       <img class="ph" data-ph="hero" alt="Коллекция KAVRO" width="1000" height="1200">
       <p class="stage-cap">Осень — зима 2026</p>
@@ -483,7 +418,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
-<!-- Условия -->
 <section class="perks" aria-label="Условия заказа">
   <div class="wrap perks-in">
     <div class="perk"><svg class="ico"><use href="#i-send"/></svg><div><b>Оплата в Telegram-боте</b><span>Оформляете заказ на сайте и оплачиваете в боте @VYR0_bot.</span></div></div>
@@ -491,7 +425,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
-<!-- ============ КАТАЛОГ ============ -->
 <section class="sec" id="catalog" aria-labelledby="catTitle">
   <div class="wrap">
     <div class="sec-head">
@@ -514,7 +447,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
-<!-- ============ О НАС ============ -->
 <section class="dark sec" id="about" aria-labelledby="aboutTitle">
   <div class="wrap">
     <div class="about-grid">
@@ -528,7 +460,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
-<!-- ============ ДОСТАВКА ============ -->
 <section class="sec" id="delivery" aria-labelledby="shipTitle">
   <div class="wrap ship-grid">
     <div>
@@ -536,7 +467,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <ol class="steps">
         <li class="step"><span class="step-n">1</span><h3>Выберите вещь и размер</h3><p>Добавьте товары в корзину. Размер выбирается на карточке или в окне товара.</p></li>
         <li class="step"><span class="step-n">2</span><h3>Оставьте контакты</h3><p>Имя и Telegram или телефон, чтобы мы могли связаться по заказу.</p></li>
-        <li class="step"><span class="step-n">3</span><h3>Оплатите в Telegram-боте</h3><p>Кнопка «Оплатить» переведёт в бота @VYR0_bot с номером вашего заказа.</p></li>
+        <li class="step"><span class="step-n">3</span><h3>Оплатите в Telegram-боте</h3><p>Кнопка «Оплатить» переведёт в бота @VYR0_bot с вашей корзиной.</p></li>
         <li class="step"><span class="step-n">4</span><h3>Получите заказ Казпочтой</h3><p>Доставка в отделение или курьером. Срок доставки от 4 до 9 дней.</p></li>
       </ol>
     </div>
@@ -548,7 +479,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
-<!-- ============ КОНТАКТЫ ============ -->
 <section class="dark" id="contacts" aria-labelledby="contactTitle">
   <div class="wrap sec" style="padding-bottom:0">
     <h2 class="contact-lead" id="contactTitle">Подскажем с размером и наличием</h2>
@@ -569,10 +499,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </section>
 </main>
 
-<!-- ============ СЛОИ ============ -->
 <div class="scrim" id="scrim"></div>
 
-<!-- Окно товара -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
   <div class="m-dialog" id="mDialog">
     <button class="icon-btn m-close" id="mClose" type="button" aria-label="Закрыть"><svg class="ico"><use href="#i-close"/></svg></button>
@@ -580,18 +508,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </div>
 
-<!-- Корзина -->
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
   <div class="d-head">
     <h2 class="d-title" id="dTitle">Корзина</h2>
     <button class="icon-btn" id="dClose" type="button" aria-label="Закрыть"><svg class="ico"><use href="#i-close"/></svg></button>
   </div>
-
   <div class="d-step" id="stepCart">
     <div class="d-body" id="cartBody"></div>
     <div class="d-foot" id="cartFoot"></div>
   </div>
-
   <form class="d-step" id="stepForm" hidden novalidate>
     <div class="d-body">
       <button class="d-back" id="backToCart" type="button"><svg class="ico" style="width:16px;height:16px"><use href="#i-arrow-l"/></svg>Назад в корзину</button>
@@ -616,10 +541,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     </div>
     <div class="d-foot">
       <button class="btn btn--block" type="submit">Оплатить в Telegram <svg class="ico"><use href="#i-arrow"/></svg></button>
-      <p class="fine">Откроется Telegram-бот @VYR0_bot. Состав заказа скопируется в буфер обмена, его можно вставить в чат с ботом.</p>
+      <p class="fine">Откроется Telegram-бот @VYR0_bot. Состав заказа скопируется в буфер обмена — вставьте его в чат с ботом, если нужно.</p>
     </div>
   </form>
-
   <div class="d-step" id="stepDone" hidden>
     <div class="d-body" id="doneBody"></div>
   </div>
@@ -631,28 +555,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 (() => {
   'use strict';
 
-  /* ===================================================================
-     1. НАСТРОЙКИ
-     =================================================================== */
   const CONFIG = {
-    CHANNEL_URL: 'https://t.me/kavroshop',   // Telegram-канал
-    BOT_URL: 'https://t.me/VYR0_bot',        // Telegram-бот для оплаты
+    CHANNEL_URL: 'https://t.me/kavroshop',
+    BOT_URL: 'https://t.me/VYR0_bot',
     APPEND_ORDER_ID: true,
     OPEN_IN_NEW_TAB: true,
     ORDER_ENDPOINT: '',
-
     currency: '₸',
     locale: 'ru-KZ',
     freeShippingFrom: 20000,
-
-    contacts: {
-      telegram: 'https://t.me/kavroshop'
-    }
+    contacts: { telegram: 'https://t.me/kavroshop' }
   };
 
-  /* ===================================================================
-     2. ТОВАРЫ (с заглушками вместо фото)
-     =================================================================== */
   const DEFAULT_PRODUCTS = [
     {
       id: 'fleece', cat: 'sneakers', image: 'fleece',
@@ -707,7 +621,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   const PRODUCTS = DEFAULT_PRODUCTS;
   const byId = id => PRODUCTS.find(p => p.id === id);
 
-  /* Заглушки-изображения: SVG-плитки в тёмно-синей палитре */
   function makePlaceholder(label, tone) {
     const tones = {
       navy: ['#0f1c33', '#2f5aa8', '#d6dce8'],
@@ -749,7 +662,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   const altOf = p => `${p.brand} ${p.name}`;
   const sizeText = (p, s) => (p.sizeUnit ? `${p.sizeUnit} ${s}` : s);
 
-  /* Состояние */
   const CART_KEY = 'kavro_cart_v1';
   let cart = (store.get(CART_KEY, []) || []).filter(l => {
     const p = l && byId(l.id);
@@ -763,9 +675,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   const saveCart = () => store.set(CART_KEY, cart);
 
-  /* ===================================================================
-     КАТАЛОГ
-     =================================================================== */
   const grid = $('#grid');
 
   function renderFilters() {
@@ -837,10 +746,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   grid.addEventListener('click', e => {
     const open = e.target.closest('[data-open]');
     if (open) { openModal(open.dataset.open); return; }
-
     const chip = e.target.closest('.chip');
     if (chip) { setSelected(chip.closest('.card').dataset.id, chip.dataset.size); return; }
-
     const add = e.target.closest('[data-add]');
     if (add) {
       const p = byId(add.dataset.add), size = selected[p.id];
@@ -849,9 +756,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     }
   });
 
-  /* ===================================================================
-     КОРЗИНА
-     =================================================================== */
   const cartLines = () => cart.map(l => ({ ...l, p: byId(l.id) })).filter(l => l.p);
   const subtotal = () => cartLines().reduce((s, l) => s + l.p.price * l.qty, 0);
   const totalQty = () => cart.reduce((s, l) => s + l.qty, 0);
@@ -927,9 +831,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   $('#cartFoot').addEventListener('click', e => { if (e.target.closest('[data-checkout]')) goToForm(); });
   $('#cartBtn').addEventListener('click', openCart);
 
-  /* ===================================================================
-     ОКНО ТОВАРА
-     =================================================================== */
   function modalHTML(p, size) {
     const chips = p.sizes.map(s => chipHTML(p, s, size === s)).join('');
     return `
@@ -983,9 +884,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   });
   $('#mClose').addEventListener('click', () => closeLayer());
 
-  /* ===================================================================
-     СЛОИ
-     =================================================================== */
   const scrim = $('#scrim');
   const LAYERS = { modal: $('#modal'), drawer: $('#drawer'), menu: $('#mnav') };
   let current = null, returnFocus = null;
@@ -1034,9 +932,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     }
   });
 
-  /* ===================================================================
-     КОРЗИНА: ШАГИ
-     =================================================================== */
   function setStep(s) {
     step = s;
     $('#stepCart').hidden = s !== 'cart';
@@ -1058,16 +953,19 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   $('#backToCart').addEventListener('click', () => { setStep('cart'); });
 
-  /* ===================================================================
-     ОФОРМЛЕНИЕ ЗАКАЗА
-     =================================================================== */
   const makeOrderId = () => 'KV-' + (Date.now().toString(36).slice(-4) + Math.random().toString(36).slice(2, 4)).toUpperCase();
 
-  function botUrl(orderId) {
+  /* ============ ПЕРЕДАЧА КОРЗИНЫ В БОТА ============ */
+  /* Формат: "fleece_1-runner_2" — совпадает с тем, что парсит бот */
+  function buildStartParam(items) {
+    return items.map(i => `${i.id}_${i.qty}`).join('-');
+  }
+
+  function botUrl(param) {
     try {
       const u = new URL(CONFIG.BOT_URL);
-      if (CONFIG.APPEND_ORDER_ID) {
-        u.searchParams.set('start', `order_${orderId}`.slice(0, 64));
+      if (param && param.length <= 64) {
+        u.searchParams.set('start', param);
       }
       return u.toString();
     } catch (e) { return CONFIG.BOT_URL; }
@@ -1131,23 +1029,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       items: cartLines().map(l => ({ id: l.id, article: l.p.article, brand: l.p.brand, name: l.p.name, size: sizeText(l.p, l.size), qty: l.qty, price: l.p.price })),
       total: subtotal()
     };
-    const url = botUrl(order.id), text = orderText(order);
+
+    /* Передаём корзину в бота через ?start=fleece_1-runner_2 */
+    const param = buildStartParam(order.items);
+    const overflow = param.length > 64;
+    const url = botUrl(overflow ? '' : param);
+    const text = orderText(order);
     store.set('kavro_last_order', order);
 
     const copied = copyText(text);
     cart = []; saveCart(); updateBadge(); renderCart();
-    showDone(order, url, text, copied);
+    showDone(order, url, text, copied, overflow);
 
-    if (CONFIG.OPEN_IN_NEW_TAB) {
-      const w = window.open(url, '_blank');
-      if (w) { try { w.opener = null; } catch (err) { } }
-      else if (window.self === window.top) location.href = url;
-    } else if (window.self === window.top) {
-      location.href = url;
+    if (!overflow) {
+      if (CONFIG.OPEN_IN_NEW_TAB) {
+        const w = window.open(url, '_blank');
+        if (w) { try { w.opener = null; } catch (err) { } }
+        else if (window.self === window.top) location.href = url;
+      } else if (window.self === window.top) {
+        location.href = url;
+      }
     }
   });
 
-  function showDone(order, url, text, copiedPromise) {
+  function showDone(order, url, text, copiedPromise, overflow) {
+    const warn = overflow
+      ? `<p class="fine" style="color:var(--danger);font-weight:600">В корзине слишком много позиций для автоматического переноса. Состав заказа скопирован — вставьте его в чат с ботом.</p>`
+      : '';
+    const lead = overflow
+      ? 'Откройте Telegram-бот @VYR0_bot и вставьте состав заказа из буфера обмена.'
+      : 'Открываем Telegram-бот @VYR0_bot для оплаты. Если он не открылся, нажмите кнопку ниже.';
     $('#doneBody').innerHTML = `
       <div class="done">
         <div class="slip">
@@ -1156,7 +1067,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           <ul>${order.items.map(i => `<li><span>${esc(i.name)}, ${esc(i.size)} × ${i.qty}</span><span>${money(i.price * i.qty)}</span></li>`).join('')}</ul>
           <div class="slip-total"><span>Итого</span><span>${money(order.total)}</span></div>
         </div>
-        <p class="fine">Открываем Telegram-бот @VYR0_bot для оплаты. Если он не открылся, нажмите кнопку ниже.</p>
+        ${warn}
+        <p class="fine">${lead}</p>
         <a class="btn btn--block" href="${esc(url)}" target="_blank" rel="noopener">Открыть Telegram-бот ${ico('arrow')}</a>
         <button class="btn btn--ghost btn--block" type="button" id="copyOrder">Скопировать состав заказа</button>
         <p class="copy-state" id="copyState" role="status"></p>
@@ -1172,9 +1084,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   $('#doneBody').addEventListener('click', e => { if (e.target.closest('[data-go-catalog]')) { closeLayer(); location.hash = '#catalog'; } });
 
-  /* ===================================================================
-     ТОСТ
-     =================================================================== */
   let toastTimer;
   function toast(msg) {
     $('#toastText').textContent = msg;
@@ -1184,9 +1093,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   $('#toastBtn').addEventListener('click', () => { $('#toast').classList.remove('on'); openCart(); });
 
-  /* ===================================================================
-     ИНИЦИАЛИЗАЦИЯ
-     =================================================================== */
   function init() {
     $$('img[data-ph]').forEach(img => { img.src = PH[img.dataset.ph] || PH.hero; });
 
